@@ -93,7 +93,7 @@
 		6566BF0825610D1C0073D365 /* MacQuake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacQuake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6566BF1725610D1E0073D365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6566BF1C25610D1E0073D365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6566BF1F25610D1E0073D365 /* qm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = qm.entitlements; sourceTree = "<group>"; };
+		6566BF1F25610D1E0073D365 /* MacQuake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacQuake.entitlements; sourceTree = "<group>"; };
 		6566BF2E25610EC90073D365 /* block16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = block16.h; path = WinQuake/block16.h; sourceTree = SOURCE_ROOT; };
 		6566BF3025610EC90073D365 /* menu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = menu.c; path = WinQuake/menu.c; sourceTree = SOURCE_ROOT; };
 		6566BF3125610EC90073D365 /* model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = model.h; path = WinQuake/model.h; sourceTree = SOURCE_ROOT; };
@@ -275,7 +275,7 @@
 			children = (
 				6566BF1725610D1E0073D365 /* Assets.xcassets */,
 				6566BF1C25610D1E0073D365 /* Info.plist */,
-				6566BF1F25610D1E0073D365 /* qm.entitlements */,
+				6566BF1F25610D1E0073D365 /* MacQuake.entitlements */,
 			);
 			path = MacQuake;
 			sourceTree = "<group>";
@@ -706,7 +706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = qm/qm.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacQuake/MacQuake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/MacQuake/Info.plist";
@@ -724,7 +724,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = qm/qm.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacQuake/MacQuake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/MacQuake/Info.plist";
