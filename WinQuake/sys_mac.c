@@ -429,31 +429,16 @@ int main (int c, char **v)
 //    parms.cachedir = cachedir;
 
     fcntl(0, F_SETFL, fcntl (0, F_GETFL, 0) | FNDELAY);
+   
+    Host_Init(&parms);
+
+    Sys_Init();
     
-    glutInit(&c, v); // Initializes glut
-
-    // Sets up a double buffer with RGBA components and a depth component
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
-
-    // Sets the window size to 512*512 square pixels
-    glutInitWindowSize(640, 480);
-
-    // Sets the window position to the upper left
-    glutInitWindowPosition(100, 100);
-
-    // Creates a window using internal glut functionality
-    int window = glutCreateWindow("Hello!");
-    printf("window %i", window);
-
     // passes reshape and display functions to the OpenGL machine for callback
     glutReshapeFunc(Sys_Reshape);
     glutDisplayFunc(Sys_Looper);
     glutIdleFunc(Sys_Looper);
 //    glutIdleFunc(NULL);
-    
-    Host_Init(&parms);
-
-    Sys_Init();
 
     if (COM_CheckParm("-nostdout"))
         nostdout = 1;

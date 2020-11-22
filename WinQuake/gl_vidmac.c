@@ -593,17 +593,16 @@ void VID_Init(unsigned char *palette)
     if (vid.conheight < 200)
         vid.conheight = 200;
 
-//    fc = fxMesaCreateContext(0, findres(&width, &height), GR_REFRESH_75Hz,
-//        attribs);
-//    if (!fc)
-//        Sys_Error("Unable to create 3DFX context.\n");
-
+    glutInit(&com_argc, com_argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
+    glutInitWindowSize(width, height);
+    glutInitWindowPosition(100, 100);
+    glutCreateWindow("Hello!");
+    
     InitSig(); // trap evil signals
 
     scr_width = width;
     scr_height = height;
-
-//    fxMesaMakeCurrent(fc);
 
     if (vid.conheight > height)
         vid.conheight = height;
