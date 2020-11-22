@@ -542,7 +542,6 @@ static void Check_Gamma (unsigned char *pal)
 void VID_Init(unsigned char *palette)
 {
     int i;
-    GLint attribs[32];
     char    gldir[MAX_OSPATH];
     int width = 640, height = 480;
 
@@ -559,15 +558,6 @@ void VID_Init(unsigned char *palette)
     vid.fullbright = 256 - LittleLong (*((int *)vid.colormap + 2048));
 
 // interpret command-line params
-
-// set vid parameters
-//    attribs[0] = FXMESA_DOUBLEBUFFER;
-//    attribs[1] = FXMESA_ALPHA_SIZE;
-//    attribs[2] = 1;
-//    attribs[3] = FXMESA_DEPTH_SIZE;
-//    attribs[4] = 1;
-//    attribs[5] = FXMESA_NONE;
-
     if ((i = COM_CheckParm("-width")) != 0)
         width = atoi(com_argv[i+1]);
     if ((i = COM_CheckParm("-height")) != 0)
