@@ -21,6 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "quakedef.h"
 
+#include <unistd.h>
+
 #define NUM_SAFE_ARGVS  7
 
 static char     *largv[MAX_NUM_ARGVS + NUM_SAFE_ARGVS + 1];
@@ -1734,6 +1736,11 @@ void COM_InitFilesystem (void)
 	int             i, j;
 	char    basedir[MAX_OSPATH];
 	searchpath_t    *search;
+    
+    char cwd[512];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("Current working dir: %s\n", cwd);
+    }
 
 //
 // -basedir <path>

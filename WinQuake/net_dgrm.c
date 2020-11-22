@@ -30,7 +30,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <arpa/inet.h>
 #else
 #define AF_INET 		2	/* internet */
-struct in_addr
+
+#include <netinet/in.h>
+
+struct qin_addr
 {
 	union
 	{
@@ -39,16 +42,16 @@ struct in_addr
 		unsigned long S_addr;
 	} S_un;
 };
-#define	s_addr	S_un.S_addr	/* can be used for most tcp & ip code */
-struct sockaddr_in
-{
-    short			sin_family;
-    unsigned short	sin_port;
-	struct in_addr	sin_addr;
-    char			sin_zero[8];
-};
-char *inet_ntoa(struct in_addr in);
-unsigned long inet_addr(const char *cp);
+//#define	s_addr	S_un.S_addr	/* can be used for most tcp & ip code */
+//struct sockaddr_in
+//{
+//    short			sin_family;
+//    unsigned short	sin_port;
+//	struct in_addr	sin_addr;
+//    char			sin_zero[8];
+//};
+//char *inet_ntoa(struct in_addr in);
+//unsigned long inet_addr(const char *cp);
 #endif
 #endif	// BAN_TEST
 
@@ -104,56 +107,57 @@ unsigned long banMask = 0xffffffff;
 
 void NET_Ban_f (void)
 {
-	char	addrStr [32];
-	char	maskStr [32];
-	void	(*print) (char *fmt, ...);
-
-	if (cmd_source == src_command)
-	{
-		if (!sv.active)
-		{
-			Cmd_ForwardToServer ();
-			return;
-		}
-		print = Con_Printf;
-	}
-	else
-	{
-		if (pr_global_struct->deathmatch && !host_client->privileged)
-			return;
-		print = SV_ClientPrintf;
-	}
-
-	switch (Cmd_Argc ())
-	{
-		case 1:
-			if (((struct in_addr *)&banAddr)->s_addr)
-			{
-				Q_strcpy(addrStr, inet_ntoa(*(struct in_addr *)&banAddr));
-				Q_strcpy(maskStr, inet_ntoa(*(struct in_addr *)&banMask));
-				print("Banning %s [%s]\n", addrStr, maskStr);
-			}
-			else
-				print("Banning not active\n");
-			break;
-
-		case 2:
-			if (Q_strcasecmp(Cmd_Argv(1), "off") == 0)
-				banAddr = 0x00000000;
-			else
-				banAddr = inet_addr(Cmd_Argv(1));
-			banMask = 0xffffffff;
-			break;
-
-		case 3:
-			banAddr = inet_addr(Cmd_Argv(1));
-			banMask = inet_addr(Cmd_Argv(2));
-			break;
-
-		default:
-			print("BAN ip_address [mask]\n");
-			break;
-	}
+    Sys_Printf("Net_Ban_f unimplemented");
+//	char	addrStr [32];
+//	char	maskStr [32];
+//	void	(*print) (char *fmt, ...);
+//
+//	if (cmd_source == src_command)
+//	{
+//		if (!sv.active)
+//		{
+//			Cmd_ForwardToServer ();
+//			return;
+//		}
+//		print = Con_Printf;
+//	}
+//	else
+//	{
+//		if (pr_global_struct->deathmatch && !host_client->privileged)
+//			return;
+//		print = SV_ClientPrintf;
+//	}
+//
+//	switch (Cmd_Argc ())
+//	{
+//		case 1:
+//			if (((struct in_addr *)&banAddr)->s_addr)
+//			{
+//				Q_strcpy(addrStr, inet_ntoa(*(struct in_addr *)&banAddr));
+//				Q_strcpy(maskStr, inet_ntoa(*(struct in_addr *)&banMask));
+//				print("Banning %s [%s]\n", addrStr, maskStr);
+//			}
+//			else
+//				print("Banning not active\n");
+//			break;
+//
+//		case 2:
+//			if (Q_strcasecmp(Cmd_Argv(1), "off") == 0)
+//				banAddr = 0x00000000;
+//			else
+//				banAddr = inet_addr(Cmd_Argv(1));
+//			banMask = 0xffffffff;
+//			break;
+//
+//		case 3:
+//			banAddr = inet_addr(Cmd_Argv(1));
+//			banMask = inet_addr(Cmd_Argv(2));
+//			break;
+//
+//		default:
+//			print("BAN ip_address [mask]\n");
+//			break;
+//	}con
 }
 #endif
 

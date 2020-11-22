@@ -37,7 +37,6 @@
 		6566BFD925610ECC0073D365 /* 3dfx.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6566BF8125610ECB0073D365 /* 3dfx.txt */; };
 		6566BFDA25610ECC0073D365 /* keys.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566BF8225610ECB0073D365 /* keys.c */; };
 		6566BFDC25610ECC0073D365 /* gas2masm in Resources */ = {isa = PBXBuildFile; fileRef = 6566BF8425610ECB0073D365 /* gas2masm */; };
-		6566BFDE25610ECC0073D365 /* cd_linux.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566BF8725610ECB0073D365 /* cd_linux.c */; };
 		6566BFE025610ECC0073D365 /* host.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566BF8D25610ECB0073D365 /* host.c */; };
 		6566BFE125610ECC0073D365 /* cl_demo.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566BF8F25610ECB0073D365 /* cl_demo.c */; };
 		6566BFE225610ECC0073D365 /* cl_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566BF9225610ECB0073D365 /* cl_main.c */; };
@@ -50,7 +49,6 @@
 		6566C084256113A90073D365 /* net_bsd.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566BFF72561139F0073D365 /* net_bsd.c */; };
 		6566C085256113A90073D365 /* quake-shareware.spec.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6566BFF8256113A00073D365 /* quake-shareware.spec.sh */; };
 		6566C089256113A90073D365 /* progdefs.q1 in Resources */ = {isa = PBXBuildFile; fileRef = 6566BFFD256113A00073D365 /* progdefs.q1 */; };
-		6566C08A256113A90073D365 /* snd_mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566BFFE256113A00073D365 /* snd_mem.c */; };
 		6566C08C256113A90073D365 /* zone.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C001256113A00073D365 /* zone.c */; };
 		6566C08E256113A90073D365 /* sv_phys.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C004256113A10073D365 /* sv_phys.c */; };
 		6566C092256113A90073D365 /* qt.bat in Resources */ = {isa = PBXBuildFile; fileRef = 6566C009256113A10073D365 /* qt.bat */; };
@@ -70,26 +68,25 @@
 		6566C0AE256113A90073D365 /* net_vcr.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C02F256113A30073D365 /* net_vcr.c */; };
 		6566C0B2256113A90073D365 /* net_dgrm.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C033256113A40073D365 /* net_dgrm.c */; };
 		6566C0B9256113A90073D365 /* world.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C03C256113A40073D365 /* world.c */; };
-		6566C0BA256113A90073D365 /* snd_dma.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C03E256113A40073D365 /* snd_dma.c */; };
 		6566C0BC256113A90073D365 /* wqreadme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6566C043256113A50073D365 /* wqreadme.txt */; };
 		6566C0BD256113A90073D365 /* net_udp.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C044256113A50073D365 /* net_udp.c */; };
 		6566C0BE256113A90073D365 /* qe3.ico in Resources */ = {isa = PBXBuildFile; fileRef = 6566C045256113A50073D365 /* qe3.ico */; };
 		6566C0CC256113A90073D365 /* pr_exec.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C05A256113A60073D365 /* pr_exec.c */; };
-		6566C0CD256113A90073D365 /* snd_mix.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C05C256113A60073D365 /* snd_mix.c */; };
 		6566C0D2256113A90073D365 /* qa.bat in Resources */ = {isa = PBXBuildFile; fileRef = 6566C062256113A70073D365 /* qa.bat */; };
 		6566C0D5256113A90073D365 /* scitech in Resources */ = {isa = PBXBuildFile; fileRef = 6566C066256113A70073D365 /* scitech */; };
 		6566C0DB256113A90073D365 /* quake.spec.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6566C06E256113A80073D365 /* quake.spec.sh */; };
 		6566C0DC256113A90073D365 /* pr_edict.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C06F256113A80073D365 /* pr_edict.c */; };
 		6566C0DE256113A90073D365 /* quake.ico in Resources */ = {isa = PBXBuildFile; fileRef = 6566C071256113A80073D365 /* quake.ico */; };
-		6566C0E1256113A90073D365 /* snd_linux.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C074256113A80073D365 /* snd_linux.c */; };
 		6566C0E2256113A90073D365 /* quake-rogue.spec.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6566C075256113A80073D365 /* quake-rogue.spec.sh */; };
-		6566C0E3256113A90073D365 /* sys_linux.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C076256113A80073D365 /* sys_linux.c */; };
 		6566C0E4256113A90073D365 /* sbar.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C077256113A80073D365 /* sbar.c */; };
 		6566C0E7256113A90073D365 /* sv_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C07A256113A90073D365 /* sv_main.c */; };
 		6566C0E9256113A90073D365 /* q.bat in Resources */ = {isa = PBXBuildFile; fileRef = 6566C07C256113A90073D365 /* q.bat */; };
 		6566C0EB256113A90073D365 /* qb.bat in Resources */ = {isa = PBXBuildFile; fileRef = 6566C07F256113A90073D365 /* qb.bat */; };
-		6566C10F25612B300073D365 /* gl_vidlinux.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C10E25612B300073D365 /* gl_vidlinux.c */; };
 		6566C116256678000073D365 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6566C115256678000073D365 /* GLUT.framework */; };
+		6566C1212569E6770073D365 /* sys_mac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C1202569E6770073D365 /* sys_mac.c */; };
+		6566C1262569E7820073D365 /* snd_null.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C1252569E7820073D365 /* snd_null.c */; };
+		6566C12B2569E89E0073D365 /* cd_null.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C12A2569E89E0073D365 /* cd_null.c */; };
+		6566C12F2569E98B0073D365 /* gl_vidmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C12E2569E98B0073D365 /* gl_vidmac.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,7 +144,6 @@
 		6566BF8225610ECB0073D365 /* keys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keys.c; path = WinQuake/keys.c; sourceTree = SOURCE_ROOT; };
 		6566BF8425610ECB0073D365 /* gas2masm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gas2masm; path = WinQuake/gas2masm; sourceTree = SOURCE_ROOT; };
 		6566BF8625610ECB0073D365 /* input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = input.h; path = WinQuake/input.h; sourceTree = SOURCE_ROOT; };
-		6566BF8725610ECB0073D365 /* cd_linux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cd_linux.c; path = WinQuake/cd_linux.c; sourceTree = SOURCE_ROOT; };
 		6566BF8825610ECB0073D365 /* menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = menu.h; path = WinQuake/menu.h; sourceTree = SOURCE_ROOT; };
 		6566BF8A25610ECB0073D365 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = WinQuake/common.h; sourceTree = SOURCE_ROOT; };
 		6566BF8B25610ECB0073D365 /* glquake2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glquake2.h; path = WinQuake/glquake2.h; sourceTree = SOURCE_ROOT; };
@@ -172,10 +168,8 @@
 		6566BFF8256113A00073D365 /* quake-shareware.spec.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "quake-shareware.spec.sh"; path = "WinQuake/quake-shareware.spec.sh"; sourceTree = SOURCE_ROOT; };
 		6566BFFC256113A00073D365 /* zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zone.h; path = WinQuake/zone.h; sourceTree = SOURCE_ROOT; };
 		6566BFFD256113A00073D365 /* progdefs.q1 */ = {isa = PBXFileReference; lastKnownFileType = text; name = progdefs.q1; path = WinQuake/progdefs.q1; sourceTree = SOURCE_ROOT; };
-		6566BFFE256113A00073D365 /* snd_mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_mem.c; path = WinQuake/snd_mem.c; sourceTree = SOURCE_ROOT; };
 		6566BFFF256113A00073D365 /* vid_dos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vid_dos.h; path = WinQuake/vid_dos.h; sourceTree = SOURCE_ROOT; };
 		6566C001256113A00073D365 /* zone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zone.c; path = WinQuake/zone.c; sourceTree = SOURCE_ROOT; };
-		6566C003256113A00073D365 /* winquake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winquake.h; path = WinQuake/winquake.h; sourceTree = SOURCE_ROOT; };
 		6566C004256113A10073D365 /* sv_phys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sv_phys.c; path = WinQuake/sv_phys.c; sourceTree = SOURCE_ROOT; };
 		6566C006256113A10073D365 /* pr_comp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pr_comp.h; path = WinQuake/pr_comp.h; sourceTree = SOURCE_ROOT; };
 		6566C009256113A10073D365 /* qt.bat */ = {isa = PBXFileReference; lastKnownFileType = text; name = qt.bat; path = WinQuake/qt.bat; sourceTree = SOURCE_ROOT; };
@@ -207,7 +201,6 @@
 		6566C039256113A40073D365 /* net_ipx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_ipx.h; path = WinQuake/net_ipx.h; sourceTree = SOURCE_ROOT; };
 		6566C03C256113A40073D365 /* world.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = world.c; path = WinQuake/world.c; sourceTree = SOURCE_ROOT; };
 		6566C03D256113A40073D365 /* render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = render.h; path = WinQuake/render.h; sourceTree = SOURCE_ROOT; };
-		6566C03E256113A40073D365 /* snd_dma.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_dma.c; path = WinQuake/snd_dma.c; sourceTree = SOURCE_ROOT; };
 		6566C03F256113A40073D365 /* wad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wad.h; path = WinQuake/wad.h; sourceTree = SOURCE_ROOT; };
 		6566C040256113A40073D365 /* net_ser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_ser.h; path = WinQuake/net_ser.h; sourceTree = SOURCE_ROOT; };
 		6566C041256113A50073D365 /* net_udp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_udp.h; path = WinQuake/net_udp.h; sourceTree = SOURCE_ROOT; };
@@ -223,7 +216,6 @@
 		6566C058256113A60073D365 /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = view.h; path = WinQuake/view.h; sourceTree = SOURCE_ROOT; };
 		6566C05A256113A60073D365 /* pr_exec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pr_exec.c; path = WinQuake/pr_exec.c; sourceTree = SOURCE_ROOT; };
 		6566C05B256113A60073D365 /* net_loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_loop.h; path = WinQuake/net_loop.h; sourceTree = SOURCE_ROOT; };
-		6566C05C256113A60073D365 /* snd_mix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_mix.c; path = WinQuake/snd_mix.c; sourceTree = SOURCE_ROOT; };
 		6566C05F256113A60073D365 /* r_shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = r_shared.h; path = WinQuake/r_shared.h; sourceTree = SOURCE_ROOT; };
 		6566C062256113A70073D365 /* qa.bat */ = {isa = PBXFileReference; lastKnownFileType = text; name = qa.bat; path = WinQuake/qa.bat; sourceTree = SOURCE_ROOT; };
 		6566C065256113A70073D365 /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = world.h; path = WinQuake/world.h; sourceTree = SOURCE_ROOT; };
@@ -233,17 +225,18 @@
 		6566C06E256113A80073D365 /* quake.spec.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = quake.spec.sh; path = WinQuake/quake.spec.sh; sourceTree = SOURCE_ROOT; };
 		6566C06F256113A80073D365 /* pr_edict.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pr_edict.c; path = WinQuake/pr_edict.c; sourceTree = SOURCE_ROOT; };
 		6566C071256113A80073D365 /* quake.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = quake.ico; path = WinQuake/quake.ico; sourceTree = SOURCE_ROOT; };
-		6566C074256113A80073D365 /* snd_linux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_linux.c; path = WinQuake/snd_linux.c; sourceTree = SOURCE_ROOT; };
 		6566C075256113A80073D365 /* quake-rogue.spec.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "quake-rogue.spec.sh"; path = "WinQuake/quake-rogue.spec.sh"; sourceTree = SOURCE_ROOT; };
-		6566C076256113A80073D365 /* sys_linux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sys_linux.c; path = WinQuake/sys_linux.c; sourceTree = SOURCE_ROOT; };
 		6566C077256113A80073D365 /* sbar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sbar.c; path = WinQuake/sbar.c; sourceTree = SOURCE_ROOT; };
 		6566C07A256113A90073D365 /* sv_main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sv_main.c; path = WinQuake/sv_main.c; sourceTree = SOURCE_ROOT; };
 		6566C07C256113A90073D365 /* q.bat */ = {isa = PBXFileReference; lastKnownFileType = text; name = q.bat; path = WinQuake/q.bat; sourceTree = SOURCE_ROOT; };
 		6566C07E256113A90073D365 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = server.h; path = WinQuake/server.h; sourceTree = SOURCE_ROOT; };
 		6566C07F256113A90073D365 /* qb.bat */ = {isa = PBXFileReference; lastKnownFileType = text; name = qb.bat; path = WinQuake/qb.bat; sourceTree = SOURCE_ROOT; };
 		6566C10C256128B70073D365 /* r_local.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = r_local.h; path = WinQuake/r_local.h; sourceTree = "<group>"; };
-		6566C10E25612B300073D365 /* gl_vidlinux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gl_vidlinux.c; path = WinQuake/gl_vidlinux.c; sourceTree = "<group>"; };
 		6566C115256678000073D365 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		6566C1202569E6770073D365 /* sys_mac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sys_mac.c; path = WinQuake/sys_mac.c; sourceTree = "<group>"; };
+		6566C1252569E7820073D365 /* snd_null.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_null.c; path = WinQuake/snd_null.c; sourceTree = "<group>"; };
+		6566C12A2569E89E0073D365 /* cd_null.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cd_null.c; path = WinQuake/cd_null.c; sourceTree = "<group>"; };
+		6566C12E2569E98B0073D365 /* gl_vidmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gl_vidmac.c; path = WinQuake/gl_vidmac.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,15 +290,14 @@
 				6566BF5925610ECA0073D365 /* asm_draw.h */,
 				6566BF7025610ECA0073D365 /* asm_i386.h */,
 				6566BF4C25610EC90073D365 /* block8.h */,
-				6566C10E25612B300073D365 /* gl_vidlinux.c */,
 				6566BF2E25610EC90073D365 /* block16.h */,
 				6566BF7F25610ECB0073D365 /* bspfile.h */,
-				6566BF8725610ECB0073D365 /* cd_linux.c */,
 				6566BF4725610EC90073D365 /* cdaudio.h */,
 				6566BF9625610ECB0073D365 /* chase.c */,
 				6566BF8F25610ECB0073D365 /* cl_demo.c */,
 				6566BF6225610ECA0073D365 /* cl_input.c */,
 				6566BF9225610ECB0073D365 /* cl_main.c */,
+				6566C12A2569E89E0073D365 /* cd_null.c */,
 				6566BF4825610EC90073D365 /* cl_parse.c */,
 				6566BF9325610ECB0073D365 /* cl_tent.c */,
 				6566BF4D25610EC90073D365 /* client.h */,
@@ -337,6 +329,7 @@
 				6566BF3925610EC90073D365 /* gl_rsurf.c */,
 				6566BF5025610ECA0073D365 /* gl_screen.c */,
 				6566BF6E25610ECA0073D365 /* gl_test.c */,
+				6566C12E2569E98B0073D365 /* gl_vidmac.c */,
 				6566BF4625610EC90073D365 /* gl_warp_sin.h */,
 				6566BF6525610ECA0073D365 /* gl_warp.c */,
 				6566BF7325610ECA0073D365 /* glqnotes.txt */,
@@ -408,17 +401,14 @@
 				6566C066256113A70073D365 /* scitech */,
 				6566C069256113A70073D365 /* screen.h */,
 				6566C07E256113A90073D365 /* server.h */,
-				6566C03E256113A40073D365 /* snd_dma.c */,
-				6566C074256113A80073D365 /* snd_linux.c */,
-				6566BFFE256113A00073D365 /* snd_mem.c */,
-				6566C05C256113A60073D365 /* snd_mix.c */,
+				6566C1252569E7820073D365 /* snd_null.c */,
 				6566C01B256113A20073D365 /* sound.h */,
 				6566C04E256113A50073D365 /* spritegn.h */,
 				6566C07A256113A90073D365 /* sv_main.c */,
 				6566C023256113A30073D365 /* sv_move.c */,
 				6566C004256113A10073D365 /* sv_phys.c */,
 				6566C00F256113A10073D365 /* sv_user.c */,
-				6566C076256113A80073D365 /* sys_linux.c */,
+				6566C1202569E6770073D365 /* sys_mac.c */,
 				6566C04D256113A50073D365 /* sys.h */,
 				6566BFF32561139F0073D365 /* vgamodes.h */,
 				6566BFFF256113A00073D365 /* vid_dos.h */,
@@ -428,7 +418,6 @@
 				6566C06B256113A70073D365 /* vregset.h */,
 				6566C02E256113A30073D365 /* wad.c */,
 				6566C03F256113A40073D365 /* wad.h */,
-				6566C003256113A00073D365 /* winquake.h */,
 				6566C03C256113A40073D365 /* world.c */,
 				6566C065256113A70073D365 /* world.h */,
 				6566C01A256113A20073D365 /* wq.bat */,
@@ -549,34 +538,32 @@
 				6566BFCC25610ECC0073D365 /* gl_test.c in Sources */,
 				6566C0CC256113A90073D365 /* pr_exec.c in Sources */,
 				6566C0AD256113A90073D365 /* wad.c in Sources */,
-				6566C10F25612B300073D365 /* gl_vidlinux.c in Sources */,
 				6566BFC525610ECC0073D365 /* gl_warp.c in Sources */,
 				6566C0A4256113A90073D365 /* sv_move.c in Sources */,
 				6566BFAC25610ECC0073D365 /* cmd.c in Sources */,
 				6566C0E4256113A90073D365 /* sbar.c in Sources */,
 				6566C096256113A90073D365 /* pr_cmds.c in Sources */,
 				6566BFE025610ECC0073D365 /* host.c in Sources */,
-				6566C08A256113A90073D365 /* snd_mem.c in Sources */,
 				6566BFB925610ECC0073D365 /* gl_rmisc.c in Sources */,
 				6566C09A256113A90073D365 /* r_part.c in Sources */,
 				6566BFC125610ECC0073D365 /* crc.c in Sources */,
 				6566BFB125610ECC0073D365 /* gl_refrag.c in Sources */,
+				6566C1212569E6770073D365 /* sys_mac.c in Sources */,
 				6566BFD825610ECC0073D365 /* gl_model.c in Sources */,
 				6566C08C256113A90073D365 /* zone.c in Sources */,
 				6566BFBC25610ECC0073D365 /* cvar.c in Sources */,
 				6566BF9E25610ECB0073D365 /* console.c in Sources */,
 				6566BFDA25610ECC0073D365 /* keys.c in Sources */,
-				6566C0E3256113A90073D365 /* sys_linux.c in Sources */,
-				6566C0E1256113A90073D365 /* snd_linux.c in Sources */,
 				6566C0A9256113A90073D365 /* net_loop.c in Sources */,
 				6566BFCB25610ECC0073D365 /* gl_rmain.c in Sources */,
+				6566C1262569E7820073D365 /* snd_null.c in Sources */,
 				6566BFE425610ECC0073D365 /* mathlib.c in Sources */,
+				6566C12F2569E98B0073D365 /* gl_vidmac.c in Sources */,
 				6566C0B2256113A90073D365 /* net_dgrm.c in Sources */,
 				6566C08E256113A90073D365 /* sv_phys.c in Sources */,
 				6566BFB525610ECC0073D365 /* gl_screen.c in Sources */,
 				6566BFE125610ECC0073D365 /* cl_demo.c in Sources */,
 				6566BFA225610ECB0073D365 /* gl_rsurf.c in Sources */,
-				6566C0CD256113A90073D365 /* snd_mix.c in Sources */,
 				6566BFE225610ECC0073D365 /* cl_main.c in Sources */,
 				6566BFE325610ECC0073D365 /* cl_tent.c in Sources */,
 				6566C0DC256113A90073D365 /* pr_edict.c in Sources */,
@@ -585,10 +572,9 @@
 				6566C0B9256113A90073D365 /* world.c in Sources */,
 				6566C0AE256113A90073D365 /* net_vcr.c in Sources */,
 				6566C094256113A90073D365 /* net_main.c in Sources */,
+				6566C12B2569E89E0073D365 /* cd_null.c in Sources */,
 				6566C0E7256113A90073D365 /* sv_main.c in Sources */,
 				6566BFD225610ECC0073D365 /* gl_mesh.c in Sources */,
-				6566BFDE25610ECC0073D365 /* cd_linux.c in Sources */,
-				6566C0BA256113A90073D365 /* snd_dma.c in Sources */,
 				6566BF9D25610ECB0073D365 /* menu.c in Sources */,
 				6566BFE625610ECC0073D365 /* chase.c in Sources */,
 				6566BFD425610ECC0073D365 /* gl_draw.c in Sources */,
@@ -723,7 +709,7 @@
 				CODE_SIGN_ENTITLEMENTS = qm/qm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = qm/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MacQuake/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -741,7 +727,7 @@
 				CODE_SIGN_ENTITLEMENTS = qm/qm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = qm/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MacQuake/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
