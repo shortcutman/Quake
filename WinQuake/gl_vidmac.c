@@ -332,9 +332,34 @@ void GL_EndRendering (void)
     glutSwapBuffers();
 }
 
+void HandleGlutKeyDown(unsigned char key, int x, int y)
+{
+    Key_Event(key, true);
+}
+
+void HandleGlutSpecialKeyDown(int key, int x, int y)
+{
+    Key_Event(scantokey[key], true);
+}
+
+void HandleGlutKeyUp(unsigned char key, int x, int y)
+{
+    Key_Event(key, false);
+}
+
+void HandleGlutSpecialKeyUp(int key, int x, int y)
+{
+    Key_Event(scantokey[key], false);
+}
+
 void Init_KBD(void)
 {
     int i;
+    
+    glutKeyboardFunc(HandleGlutKeyDown);
+    glutSpecialFunc(HandleGlutSpecialKeyDown);
+    glutKeyboardUpFunc(HandleGlutKeyUp);
+    glutSpecialUpFunc(HandleGlutSpecialKeyUp);
 
     if (COM_CheckParm("-nokbd")) UseKeyboard = 0;
 
@@ -442,11 +467,11 @@ void Init_KBD(void)
 
         scantokey[78] = '+';
         scantokey[74] = '-';
-
-        //TODO FIX
-//        if (keyboard_init())
-//            Sys_Error("keyboard_init() failed");
-//        keyboard_seteventhandler(keyhandler);
+        
+        scantokey[GLUT_KEY_UP] = K_UPARROW;
+        scantokey[GLUT_KEY_DOWN] = K_DOWNARROW;
+        scantokey[GLUT_KEY_LEFT] = K_LEFTARROW;
+        scantokey[GLUT_KEY_RIGHT] = K_RIGHTARROW;
     }
 }
 
@@ -545,8 +570,6 @@ void VID_Init(unsigned char *palette)
     char    gldir[MAX_OSPATH];
     int width = 640, height = 480;
 
-    Init_KBD();
-
     Cvar_RegisterVariable (&vid_mode);
     Cvar_RegisterVariable (&vid_redrawfull);
     Cvar_RegisterVariable (&vid_waitforrefresh);
@@ -586,6 +609,8 @@ void VID_Init(unsigned char *palette)
     glutInitWindowSize(width, height);
     glutInitWindowPosition(100, 100);
     glutWindow = glutCreateWindow("Hello!");
+    
+    Init_KBD();
     
     InitSig(); // trap evil signals
 
@@ -640,7 +665,6 @@ void mousehandler(int buttonstate, int dx, int dy)
 
 void IN_Init(void)
 {
-
 //    int mtype;
 //    char *mousedev;
 //    int mouserate;
