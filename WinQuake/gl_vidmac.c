@@ -92,6 +92,7 @@ int        mx, my;
 
 cvar_t    m_filter = {"m_filter","1"};
 
+int glutWindow;
 int scr_width, scr_height;
 
 /*-----------------------------------------------------------------------*/
@@ -151,11 +152,8 @@ void keyhandler(int scancode, int state)
 
 void VID_Shutdown(void)
 {
-//    if (!fc)
-//        return;
-//
-////    fxMesaDestroyContext(fc);
-//
+    glutDestroyWindow(glutWindow);
+    
 //    if (UseKeyboard)
 //        keyboard_close();
 }
@@ -597,7 +595,7 @@ void VID_Init(unsigned char *palette)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
     glutInitWindowSize(width, height);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow("Hello!");
+    glutWindow = glutCreateWindow("Hello!");
     
     InitSig(); // trap evil signals
 
