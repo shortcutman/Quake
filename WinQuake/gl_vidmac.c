@@ -17,31 +17,25 @@
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 //*/
+
 #include <termios.h>
 #include <sys/ioctl.h>
 #include <sys/stat.h>
-//#include <sys/vt.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <signal.h>
 
-//#include <asm/io.h>
 #include <dlfcn.h>
 
-/*#include "vga.h" */
-//#include "vgakeyboard.h"
-//#include "vgamouse.h"
-
-#include "quakedef.h"
-//#include "GL/fxmesa.h"
 #include <OpenGL/gl.h>
 #include <OpenGL/glext.h>
 #include <GLUT/GLUT.h>
 
+#include "quakedef.h"
+
 #define WARP_WIDTH              320
 #define WARP_HEIGHT             200
 
-//static fxMesaContext fc = NULL;
 #define stringify(m) { #m, m }
 
 unsigned short    d_8to16table[256];
@@ -120,9 +114,6 @@ const char *gl_renderer;
 const char *gl_version;
 const char *gl_extensions;
 
-void (*qgl3DfxSetPaletteEXT) (GLuint *);
-void (*qglColorTableEXT) (int, int, int, int, int, const void *);
-
 static float vid_gamma = 1.0;
 
 qboolean is8bit = false;
@@ -146,25 +137,6 @@ int matchmouse(int mouse, char *name)
             return i;
     return mouse;
 }
-
-#if 0
-
-void vtswitch(int newconsole)
-{
-
-    int fd;
-    struct vt_stat x;
-
-// switch consoles and wait until reactivated
-    fd = open("/dev/console", O_RDONLY);
-    ioctl(fd, VT_GETSTATE, &x);
-    ioctl(fd, VT_ACTIVATE, newconsole);
-    ioctl(fd, VT_WAITACTIVE, x.v_active);
-    close(fd);
-
-}
-
-#endif
 
 void keyhandler(int scancode, int state)
 {
@@ -352,9 +324,6 @@ void GL_BeginRendering (int *x, int *y, int *width, int *height)
     *width = scr_width * 2;
     *height = scr_height * 2;
 
-//    if (!wglMakeCurrent( maindc, baseRC ))
-//        Sys_Error ("wglMakeCurrent failed");
-
     glViewport (*x, *y, *width, *height);
 }
 
@@ -363,7 +332,6 @@ void GL_EndRendering (void)
 {
     glFlush();
     glutSwapBuffers();
-//    fxMesaSwapBuffers();
 }
 
 void Init_KBD(void)
@@ -482,44 +450,6 @@ void Init_KBD(void)
 //            Sys_Error("keyboard_init() failed");
 //        keyboard_seteventhandler(keyhandler);
     }
-}
-
-#define NUM_RESOLUTIONS 16
-
-//static int resolutions[NUM_RESOLUTIONS][3]={
-//    320,200,  GR_RESOLUTION_320x200,
-//    320,240,  GR_RESOLUTION_320x240,
-//    400,256,  GR_RESOLUTION_400x256,
-//    400,300,  GR_RESOLUTION_400x300,
-//    512,384,  GR_RESOLUTION_512x384,
-//    640,200,  GR_RESOLUTION_640x200,
-//    640,350,  GR_RESOLUTION_640x350,
-//    640,400,  GR_RESOLUTION_640x400,
-//    640,480,  GR_RESOLUTION_640x480,
-//    800,600,  GR_RESOLUTION_800x600,
-//    960,720,  GR_RESOLUTION_960x720,
-//    856,480,  GR_RESOLUTION_856x480,
-//    512,256,  GR_RESOLUTION_512x256,
-//    1024,768, GR_RESOLUTION_1024x768,
-//    1280,1024,GR_RESOLUTION_1280x1024,
-//    1600,1200,GR_RESOLUTION_1600x1200
-//};
-
-int findres(int *width, int *height)
-{
-//    int i;
-//
-//    for(i=0;i<NUM_RESOLUTIONS;i++)
-//        if((*width<=resolutions[i][0]) && (*height<=resolutions[i][1])) {
-//            *width = resolutions[i][0];
-//            *height = resolutions[i][1];
-//            return resolutions[i][2];
-//        }
-
-    *width = 640;
-    *height = 480;
-//    return GR_RESOLUTION_640x480;
-    return 1;
 }
 
 qboolean VID_Is8bit(void)
