@@ -118,7 +118,8 @@ int CL_GetMessage (void)
 		VectorCopy (cl.mviewangles[0], cl.mviewangles[1]);
 		for (i=0 ; i<3 ; i++)
 		{
-			r = fread (&f, 4, 1, cls.demofile);
+            r = fread (&f, 4, 1, cls.demofile);
+            r;
 			cl.mviewangles[0][i] = LittleFloat (f);
 		}
 		

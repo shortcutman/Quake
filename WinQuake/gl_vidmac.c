@@ -724,32 +724,32 @@ void mousehandler(int buttonstate, int dx, int dy)
 void IN_Init(void)
 {
 
-    int mtype;
-    char *mousedev;
-    int mouserate;
-
-    if (UseMouse)
-    {
-
-        Cvar_RegisterVariable (&mouse_button_commands[0]);
-        Cvar_RegisterVariable (&mouse_button_commands[1]);
-        Cvar_RegisterVariable (&mouse_button_commands[2]);
-        Cmd_AddCommand ("force_centerview", Force_CenterView_f);
-
-        mouse_buttons = 3;
-
+//    int mtype;
+//    char *mousedev;
+//    int mouserate;
+//
+//    if (UseMouse)
+//    {
+//
+//        Cvar_RegisterVariable (&mouse_button_commands[0]);
+//        Cvar_RegisterVariable (&mouse_button_commands[1]);
+//        Cvar_RegisterVariable (&mouse_button_commands[2]);
+//        Cmd_AddCommand ("force_centerview", Force_CenterView_f);
+//
+//        mouse_buttons = 3;
+//
 //        mtype = vga_getmousetype();
-
-        mousedev = "/dev/mouse";
-        if (getenv("MOUSEDEV")) mousedev = getenv("MOUSEDEV");
-        if (COM_CheckParm("-mdev"))
-            mousedev = com_argv[COM_CheckParm("-mdev")+1];
-
-        mouserate = 1200;
-        if (getenv("MOUSERATE")) mouserate = atoi(getenv("MOUSERATE"));
-        if (COM_CheckParm("-mrate"))
-            mouserate = atoi(com_argv[COM_CheckParm("-mrate")+1]);
-
+//
+//        mousedev = "/dev/mouse";
+//        if (getenv("MOUSEDEV")) mousedev = getenv("MOUSEDEV");
+//        if (COM_CheckParm("-mdev"))
+//            mousedev = com_argv[COM_CheckParm("-mdev")+1];
+//
+//        mouserate = 1200;
+//        if (getenv("MOUSERATE")) mouserate = atoi(getenv("MOUSERATE"));
+//        if (COM_CheckParm("-mrate"))
+//            mouserate = atoi(com_argv[COM_CheckParm("-mrate")+1]);
+//
 //        if (mouse_init(mousedev, mtype, mouserate))
 //        {
 //            Con_Printf("No mouse found\n");
@@ -757,8 +757,8 @@ void IN_Init(void)
 //        }
 //        else
 //            mouse_seteventhandler(mousehandler);
-
-    }
+//
+//    }
 
 }
 

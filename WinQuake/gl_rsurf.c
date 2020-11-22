@@ -1458,7 +1458,7 @@ void BuildSurfaceDisplayList (msurface_t *fa)
 	vec3_t		local, transformed;
 	medge_t		*pedges, *r_pedge;
 	mplane_t	*pplane;
-	int			vertpage, newverts, newpage, lastvert;
+	int			newverts, newpage, lastvert;
 	qboolean	visible;
 	float		*vec;
 	float		s, t;
@@ -1467,7 +1467,6 @@ void BuildSurfaceDisplayList (msurface_t *fa)
 // reconstruct the polygon
 	pedges = currentmodel->edges;
 	lnumverts = fa->numedges;
-	vertpage = 0;
 
 	//
 	// draw texture
