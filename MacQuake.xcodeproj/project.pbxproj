@@ -146,7 +146,6 @@
 		6566BF8625610ECB0073D365 /* input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = input.h; path = WinQuake/input.h; sourceTree = SOURCE_ROOT; };
 		6566BF8825610ECB0073D365 /* menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = menu.h; path = WinQuake/menu.h; sourceTree = SOURCE_ROOT; };
 		6566BF8A25610ECB0073D365 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = WinQuake/common.h; sourceTree = SOURCE_ROOT; };
-		6566BF8B25610ECB0073D365 /* glquake2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glquake2.h; path = WinQuake/glquake2.h; sourceTree = SOURCE_ROOT; };
 		6566BF8D25610ECB0073D365 /* host.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = host.c; path = WinQuake/host.c; sourceTree = SOURCE_ROOT; };
 		6566BF8E25610ECB0073D365 /* dosisms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dosisms.h; path = WinQuake/dosisms.h; sourceTree = SOURCE_ROOT; };
 		6566BF8F25610ECB0073D365 /* cl_demo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cl_demo.c; path = WinQuake/cl_demo.c; sourceTree = SOURCE_ROOT; };
@@ -334,7 +333,6 @@
 				6566BF6525610ECA0073D365 /* gl_warp.c */,
 				6566BF7325610ECA0073D365 /* glqnotes.txt */,
 				6566BF7E25610ECB0073D365 /* glquake.h */,
-				6566BF8B25610ECB0073D365 /* glquake2.h */,
 				6566BF7225610ECA0073D365 /* host_cmd.c */,
 				6566BF8D25610ECB0073D365 /* host.c */,
 				6566BF8625610ECB0073D365 /* input.h */,
