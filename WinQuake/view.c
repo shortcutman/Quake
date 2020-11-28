@@ -870,7 +870,10 @@ void V_CalcRefdef (void)
 	float		bob;
 	static float oldz = 0;
 
-	V_DriftPitch ();
+    if (!(in_mlook.state & 1) && lookspring.value)
+    {
+        V_DriftPitch();
+    }
 
 // ent is the player model (visible when out of body)
 	ent = &cl_entities[cl.viewentity];

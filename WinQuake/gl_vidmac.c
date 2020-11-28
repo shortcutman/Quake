@@ -86,9 +86,8 @@ cvar_t  mouse_button_commands[3] =
 int     mouse_buttons;
 int     mouse_buttonstate;
 int     mouse_oldbuttonstate;
-float   mouse_x, mouse_y;
-float    old_mouse_x, old_mouse_y;
-int        mx, my;
+
+int oldMouseX, oldMouseY;
 
 cvar_t    m_filter = {"m_filter","1"};
 
@@ -352,6 +351,39 @@ void HandleGlutSpecialKeyUp(int key, int x, int y)
     Key_Event(scantokey[key], false);
 }
 
+void HandleGlutMouseMotion(int x, int y)
+{
+    float mouseDeltaX = x - oldMouseX;
+    float mouseDeltaY = y - oldMouseY;
+    mouseDeltaX *= sensitivity.value;
+    mouseDeltaY *= sensitivity.value;
+
+// add mouse X/Y movement to cmd
+    cl.viewangles[YAW] -= m_yaw.value * mouseDeltaX;
+
+    if (in_mlook.state & 1)
+        V_StopPitchDrift ();
+
+//    if ( (in_mlook.state & 1) && !(in_strafe.state & 1))
+//    {
+        cl.viewangles[PITCH] += m_pitch.value * mouseDeltaY;
+        if (cl.viewangles[PITCH] > 80)
+            cl.viewangles[PITCH] = 80;
+        if (cl.viewangles[PITCH] < -70)
+            cl.viewangles[PITCH] = -70;
+//    }
+//    else //tbh mouse strafe not worth implementing
+//    {
+//        if ((in_strafe.state & 1) && noclip_anglehack)
+//            cmd->upmove -= m_forward.value * mouse_y;
+//        else
+//            cmd->forwardmove -= m_forward.value * mouse_y;
+//    }
+    
+    oldMouseX = x;
+    oldMouseY = y;
+}
+
 void Init_KBD(void)
 {
     int i;
@@ -360,6 +392,11 @@ void Init_KBD(void)
     glutSpecialFunc(HandleGlutSpecialKeyDown);
     glutKeyboardUpFunc(HandleGlutKeyUp);
     glutSpecialUpFunc(HandleGlutSpecialKeyUp);
+    
+    //for mouse buttons
+//    glutMouseFunc(<#void (*func)(int, int, int, int)#>);
+    glutMotionFunc(HandleGlutMouseMotion);
+    glutPassiveMotionFunc(HandleGlutMouseMotion);
 
     if (COM_CheckParm("-nokbd")) UseKeyboard = 0;
 
@@ -655,14 +692,6 @@ void Force_CenterView_f (void)
     cl.viewangles[PITCH] = 0;
 }
 
-
-void mousehandler(int buttonstate, int dx, int dy)
-{
-    mouse_buttonstate = buttonstate;
-    mx += dx;
-    my += dy;
-}
-
 void IN_Init(void)
 {
 //    int mtype;
@@ -748,66 +777,7 @@ void IN_Commands (void)
 //    }
 }
 
-/*
-===========
-IN_Move
-===========
-*/
-void IN_MouseMove (usercmd_t *cmd)
-{
-    if (!UseMouse)
-        return;
-
-    // poll mouse values
-//    while (mouse_update())
-        ;
-
-    if (m_filter.value)
-    {
-        mouse_x = (mx + old_mouse_x) * 0.5;
-        mouse_y = (my + old_mouse_y) * 0.5;
-    }
-    else
-    {
-        mouse_x = mx;
-        mouse_y = my;
-    }
-    old_mouse_x = mx;
-    old_mouse_y = my;
-    mx = my = 0; // clear for next update
-
-    mouse_x *= sensitivity.value;
-    mouse_y *= sensitivity.value;
-
-// add mouse X/Y movement to cmd
-    if ( (in_strafe.state & 1) || (lookstrafe.value && (in_mlook.state & 1) ))
-        cmd->sidemove += m_side.value * mouse_x;
-    else
-        cl.viewangles[YAW] -= m_yaw.value * mouse_x;
-
-    if (in_mlook.state & 1)
-        V_StopPitchDrift ();
-
-    if ( (in_mlook.state & 1) && !(in_strafe.state & 1))
-    {
-        cl.viewangles[PITCH] += m_pitch.value * mouse_y;
-        if (cl.viewangles[PITCH] > 80)
-            cl.viewangles[PITCH] = 80;
-        if (cl.viewangles[PITCH] < -70)
-            cl.viewangles[PITCH] = -70;
-    }
-    else
-    {
-        if ((in_strafe.state & 1) && noclip_anglehack)
-            cmd->upmove -= m_forward.value * mouse_y;
-        else
-            cmd->forwardmove -= m_forward.value * mouse_y;
-    }
-}
-
 void IN_Move (usercmd_t *cmd)
 {
-    IN_MouseMove(cmd);
+    //probably should check if needs to be implemented
 }
-
-
