@@ -64,6 +64,19 @@ void R_InitParticles (void)
 			Hunk_AllocName (r_numparticles * sizeof(particle_t), "particles");
 }
 
+particle_t* R_GetNextParticle(void)
+{
+    particle_t* p;
+    
+    if (!free_particles)
+        return NULL;
+    p = free_particles;
+    free_particles = p->next;
+    p->next = active_particles;
+    active_particles = p;
+    return p;
+}
+
 #ifdef QUAKE2
 void R_DarkFieldParticles (entity_t *ent)
 {
@@ -321,12 +334,8 @@ void R_ParticleExplosion2 (vec3_t org, int colorStart, int colorLength)
 
 	for (i=0; i<512; i++)
 	{
-		if (!free_particles)
-			return;
-		p = free_particles;
-		free_particles = p->next;
-		p->next = active_particles;
-		active_particles = p;
+        p = R_GetNextParticle();
+        if (!p) return;
 
 		p->die = cl.time + 0.3;
 		p->color = colorStart + (colorMod % colorLength);
@@ -354,12 +363,8 @@ void R_BlobExplosion (vec3_t org)
 	
 	for (i=0 ; i<1024 ; i++)
 	{
-		if (!free_particles)
-			return;
-		p = free_particles;
-		free_particles = p->next;
-		p->next = active_particles;
-		active_particles = p;
+        p = R_GetNextParticle();
+        if (!p) return;
 
 		p->die = cl.time + 1 + (rand()&8)*0.05;
 
@@ -399,12 +404,8 @@ void R_RunParticleEffect (vec3_t org, vec3_t dir, int color, int count)
 	
 	for (i=0 ; i<count ; i++)
 	{
-		if (!free_particles)
-			return;
-		p = free_particles;
-		free_particles = p->next;
-		p->next = active_particles;
-		active_particles = p;
+        p = R_GetNextParticle();
+        if (!p) return;
 
 		if (count == 1024)
 		{	// rocket explosion
@@ -462,12 +463,8 @@ void R_LavaSplash (vec3_t org)
 		for (j=-16 ; j<16 ; j++)
 			for (k=0 ; k<1 ; k++)
 			{
-				if (!free_particles)
-					return;
-				p = free_particles;
-				free_particles = p->next;
-				p->next = active_particles;
-				active_particles = p;
+                p = R_GetNextParticle();
+                if (!p) return;
 		
 				p->die = cl.time + 2 + (rand()&31) * 0.02;
 				p->color = 224 + (rand()&7);
@@ -504,12 +501,8 @@ void R_TeleportSplash (vec3_t org)
 		for (j=-16 ; j<16 ; j+=4)
 			for (k=-24 ; k<32 ; k+=4)
 			{
-				if (!free_particles)
-					return;
-				p = free_particles;
-				free_particles = p->next;
-				p->next = active_particles;
-				active_particles = p;
+                p = R_GetNextParticle();
+                if (!p) return;
 		
 				p->die = cl.time + 0.2 + (rand()&7) * 0.02;
 				p->color = 7 + (rand()&7);
@@ -552,12 +545,8 @@ void R_RocketTrail (vec3_t start, vec3_t end, int type)
 	{
 		len -= dec;
 
-		if (!free_particles)
-			return;
-		p = free_particles;
-		free_particles = p->next;
-		p->next = active_particles;
-		active_particles = p;
+        p = R_GetNextParticle();
+        if (!p) return;
 		
 		VectorCopy (vec3_origin, p->vel);
 		p->die = cl.time + 2;
