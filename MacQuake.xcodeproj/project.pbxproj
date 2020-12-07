@@ -82,12 +82,27 @@
 		6566C0E7256113A90073D365 /* sv_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C07A256113A90073D365 /* sv_main.c */; };
 		6566C0E9256113A90073D365 /* q.bat in Resources */ = {isa = PBXBuildFile; fileRef = 6566C07C256113A90073D365 /* q.bat */; };
 		6566C0EB256113A90073D365 /* qb.bat in Resources */ = {isa = PBXBuildFile; fileRef = 6566C07F256113A90073D365 /* qb.bat */; };
-		6566C116256678000073D365 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6566C115256678000073D365 /* GLUT.framework */; };
 		6566C1212569E6770073D365 /* sys_mac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C1202569E6770073D365 /* sys_mac.c */; };
 		6566C1262569E7820073D365 /* snd_null.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C1252569E7820073D365 /* snd_null.c */; };
 		6566C12B2569E89E0073D365 /* cd_null.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C12A2569E89E0073D365 /* cd_null.c */; };
 		6566C12F2569E98B0073D365 /* gl_vidmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6566C12E2569E98B0073D365 /* gl_vidmac.c */; };
+		6566C149257357A10073D365 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6566C148257357A10073D365 /* SDL2.framework */; };
+		6566C14A257357A10073D365 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6566C148257357A10073D365 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6566C14B257357A10073D365 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6566C14A257357A10073D365 /* SDL2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6566BF0825610D1C0073D365 /* MacQuake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacQuake.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +251,7 @@
 		6566C1252569E7820073D365 /* snd_null.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = snd_null.c; path = WinQuake/snd_null.c; sourceTree = "<group>"; };
 		6566C12A2569E89E0073D365 /* cd_null.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cd_null.c; path = WinQuake/cd_null.c; sourceTree = "<group>"; };
 		6566C12E2569E98B0073D365 /* gl_vidmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gl_vidmac.c; path = WinQuake/gl_vidmac.c; sourceTree = "<group>"; };
+		6566C148257357A10073D365 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6566C116256678000073D365 /* GLUT.framework in Frameworks */,
+				6566C149257357A10073D365 /* SDL2.framework in Frameworks */,
 				6566BFED256110510073D365 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +445,7 @@
 		6566BFEB256110510073D365 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6566C148257357A10073D365 /* SDL2.framework */,
 				6566C115256678000073D365 /* GLUT.framework */,
 				6566BFEC256110510073D365 /* OpenGL.framework */,
 			);
@@ -445,6 +462,7 @@
 				6566BF0425610D1B0073D365 /* Sources */,
 				6566BF0525610D1B0073D365 /* Frameworks */,
 				6566BF0625610D1B0073D365 /* Resources */,
+				6566C14B257357A10073D365 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -707,6 +725,10 @@
 				CODE_SIGN_ENTITLEMENTS = MacQuake/MacQuake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MacQuake/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -725,6 +747,10 @@
 				CODE_SIGN_ENTITLEMENTS = MacQuake/MacQuake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MacQuake/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

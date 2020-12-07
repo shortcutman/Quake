@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <signal.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <sys/time.h>
@@ -17,7 +18,7 @@
 #include <sys/mman.h>
 #include <errno.h>
 
-#include <GLUT/GLUT.h>
+#include <SDL2/SDL.h>
 
 #include "quakedef.h"
 
@@ -386,17 +387,6 @@ void Sys_Looper(void)
         Sys_LineRefresh ();
 }
 
-void R_SetupGL(void);
-
-void Sys_Reshape(int width, int height) {
-//    printf("width: %s height: %s");
-    R_SetupGL();
-}
-
-void Sys_IdleFunc(void) {
-    printf(".");
-}
-
 int main (int c, char **v)
 {
     quakeparms_t parms;
@@ -429,16 +419,14 @@ int main (int c, char **v)
 //    parms.cachedir = cachedir;
 
     fcntl(0, F_SETFL, fcntl (0, F_GETFL, 0) | FNDELAY);
-   
-    Host_Init(&parms);
-
-    Sys_Init();
     
-    // passes reshape and display functions to the OpenGL machine for callback
-    glutReshapeFunc(Sys_Reshape);
-    glutDisplayFunc(Sys_Looper);
-    glutIdleFunc(Sys_Looper);
-//    glutIdleFunc(NULL);
+    int initResult = SDL_Init(SDL_INIT_EVERYTHING);
+    if (initResult != 0) {
+        printf("error on sdl init");
+    }
+    
+    Host_Init(&parms);
+    Sys_Init();
 
     if (COM_CheckParm("-nostdout"))
         nostdout = 1;
@@ -449,7 +437,18 @@ int main (int c, char **v)
 
     oldtime = Sys_FloatTime () - 0.1;
     
-    glutMainLoop();
+    bool run = true;
+    while (run) {
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+                case SDL_QUIT:
+                    run = false;
+                    break;
+            }
+        }
+        Sys_Looper();
+    }
 }
 
 

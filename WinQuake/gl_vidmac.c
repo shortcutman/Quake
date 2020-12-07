@@ -29,7 +29,7 @@
 
 #include <OpenGL/gl.h>
 #include <OpenGL/glext.h>
-#include <GLUT/GLUT.h>
+#include <SDL2/SDL.h>
 
 #include "quakedef.h"
 
@@ -91,7 +91,8 @@ int oldMouseX, oldMouseY;
 
 cvar_t    m_filter = {"m_filter","1"};
 
-int glutWindow;
+SDL_Window* sdlWindow;
+SDL_GLContext sdlGLContext;
 int scr_width, scr_height;
 
 /*-----------------------------------------------------------------------*/
@@ -151,7 +152,7 @@ void keyhandler(int scancode, int state)
 
 void VID_Shutdown(void)
 {
-    glutDestroyWindow(glutWindow);
+    SDL_DestroyWindow(sdlWindow);
     
 //    if (UseKeyboard)
 //        keyboard_close();
@@ -272,6 +273,11 @@ GL_Init
 */
 void GL_Init (void)
 {
+    sdlGLContext = SDL_GL_CreateContext(sdlWindow);
+    if (!sdlGLContext) {
+        printf("error creating context");
+    }
+    
     gl_vendor = glGetString (GL_VENDOR);
     Con_Printf ("GL_VENDOR: %s\n", gl_vendor);
     gl_renderer = glGetString (GL_RENDERER);
@@ -328,7 +334,7 @@ void GL_BeginRendering (int *x, int *y, int *width, int *height)
 void GL_EndRendering (void)
 {
     glFlush();
-    glutSwapBuffers();
+    SDL_GL_SwapWindow(sdlWindow);
 }
 
 void HandleGlutKeyDown(unsigned char key, int x, int y)
@@ -388,15 +394,15 @@ void Init_KBD(void)
 {
     int i;
     
-    glutKeyboardFunc(HandleGlutKeyDown);
-    glutSpecialFunc(HandleGlutSpecialKeyDown);
-    glutKeyboardUpFunc(HandleGlutKeyUp);
-    glutSpecialUpFunc(HandleGlutSpecialKeyUp);
+//    glutKeyboardFunc(HandleGlutKeyDown);
+//    glutSpecialFunc(HandleGlutSpecialKeyDown);
+//    glutKeyboardUpFunc(HandleGlutKeyUp);
+//    glutSpecialUpFunc(HandleGlutSpecialKeyUp);
     
     //for mouse buttons
 //    glutMouseFunc(<#void (*func)(int, int, int, int)#>);
-    glutMotionFunc(HandleGlutMouseMotion);
-    glutPassiveMotionFunc(HandleGlutMouseMotion);
+//    glutMotionFunc(HandleGlutMouseMotion);
+//    glutPassiveMotionFunc(HandleGlutMouseMotion);
 
     if (COM_CheckParm("-nokbd")) UseKeyboard = 0;
 
@@ -505,10 +511,10 @@ void Init_KBD(void)
         scantokey[78] = '+';
         scantokey[74] = '-';
         
-        scantokey[GLUT_KEY_UP] = K_UPARROW;
-        scantokey[GLUT_KEY_DOWN] = K_DOWNARROW;
-        scantokey[GLUT_KEY_LEFT] = K_LEFTARROW;
-        scantokey[GLUT_KEY_RIGHT] = K_RIGHTARROW;
+//        scantokey[GLUT_KEY_UP] = K_UPARROW;
+//        scantokey[GLUT_KEY_DOWN] = K_DOWNARROW;
+//        scantokey[GLUT_KEY_LEFT] = K_LEFTARROW;
+//        scantokey[GLUT_KEY_RIGHT] = K_RIGHTARROW;
     }
 }
 
@@ -640,12 +646,19 @@ void VID_Init(unsigned char *palette)
         vid.conheight = Q_atoi(com_argv[i+1]);
     if (vid.conheight < 200)
         vid.conheight = 200;
-
-    glutInit(&com_argc, com_argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
-    glutInitWindowSize(width, height);
-    glutInitWindowPosition(100, 100);
-    glutWindow = glutCreateWindow("Hello!");
+    
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+    SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+    
+    sdlWindow = SDL_CreateWindow("MacQuake", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
+    if (!sdlWindow) {
+        printf("error on sdl_createwindow");
+    }
+    SDL_ShowWindow(sdlWindow);
     
     Init_KBD();
     
@@ -679,6 +692,8 @@ void VID_Init(unsigned char *palette)
     Con_SafePrintf ("Video mode %dx%d initialized.\n", width, height);
 
     vid.recalc_refdef = 1;                // force a surface cache flush
+    
+    SDL_ShowWindow(sdlWindow);
 }
 
 void Sys_SendKeyEvents(void)
